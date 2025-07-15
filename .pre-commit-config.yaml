@@ -1,26 +1,37 @@
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: "v5.0.0"
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
     hooks:
-      - id: check-added-large-files
-      - id: check-case-conflict
-      - id: check-merge-conflict
-      - id: check-symlinks
-      - id: check-yaml
-      - id: debug-statements
-      - id: end-of-file-fixer
-      - id: mixed-line-ending
-      - id: requirements-txt-fixer
       - id: trailing-whitespace
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: "v0.8.1"
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: check-added-large-files
+        args: ['--maxkb=4096']
+      - id: debug-statements
+      - id: check-case-conflict
+      - id: check-symlinks
+      - id: mixed-line-ending
+
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.3
     hooks:
       - id: ruff
-        args: ["--fix", "--show-fixes"]
+        args: [--fix, --exit-non-zero-on-fix, -show-fixes]
       - id: ruff-format
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: "v1.13.0"
+
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.17.0
     hooks:
       - id: mypy
-        files: src
-        args: []
+        files: ^src/
+        args: [--strict]
+        # Add libraries that don't have inline types or stubs here
+        additional_dependencies: [
+        ]
+
+-   repo: https://github.com/pycqa/bandit
+    rev: 1.8.6
+    hooks:
+      - id: bandit
+        args: ["--quiet", "-r", ".", "-x", "tests/"]
