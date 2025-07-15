@@ -57,17 +57,6 @@
               echo "⚠️ 'pyproject.toml' not found. Skipping uv setup."
               echo "🐍 Using system Python: $(${pkgs.python313}/bin/python --version)"
             fi
-
-
-            if [ -f .pre-commit-config.yaml ]; then
-              echo "▶️ Running 'pre-commit install'..."
-              pre-commit install
-            else
-              echo "ℹ️ No .pre-commit-config.yaml found. Skipping pre-commit setup."
-            fi
-
-            # Unset the SOURCE_DATE_EPOCH variable which can interfere with some build tools
-            unset SOURCE_DATE_EPOCH
             '';
         };
       }
