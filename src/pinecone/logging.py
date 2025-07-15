@@ -60,15 +60,22 @@ def setup_logging() -> None:
 
 
 def get_logger(name: str | None = None) -> structlog.stdlib.BoundLogger:
-    """
-    Return a pre-configured structlog logger.
+    """Return a pre-configured structlog logger.
 
     Parameters
     ----------
-    name str | None:
-        The name of the logger, typically __name__ of the module.
+    name : str | None, optional
+        The name of the logger, typically the __name__ of the module.
+        Defaults to "pinecone" if not provided.
+
+    Returns
+    -------
+    structlog.stdlib.BoundLogger
+        A pre-configured structlog logger instance.
     """
     if not name:
         name = "pinecone"
+
     logger: structlog.stdlib.BoundLogger = structlog.get_logger(name)
+
     return logger
