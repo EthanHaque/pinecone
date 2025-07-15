@@ -52,29 +52,62 @@ line-length = 120
 
 [tool.ruff.lint]
 extend-select = [
-    "B",           # flake8-bugbear
-    "D",           # pydocstyle
-    "I",           # isort
-    "ARG",         # flake8-unused-arguments
-    "C4",          # flake8-comprehensions
-    "EM",          # flake8-errmsg
-    "ICN",         # flake8-import-conventions
-    "PGH",         # pygrep-hooks
-    "PIE",         # flake8-pie
-    "PL",          # pylint
-    "PT",          # flake8-pytest-style
-    "PTH",         # flake8-use-pathlib
-    "RET",         # flake8-return
-    "RUF",         # Ruff-specific
-    "SIM",         # flake8-simplify
-    "TID251",      # flake8-tidy-imports.banned-api
-    "ANN204",      # flake8-annotations
-    "UP",          # pyupgrade
+    "ERA001",      # Found commented-out code
     "YTT",         # flake8-2020
+    "ANN",         # flake8-annotations
+    "ASYNC",       # flake8-async
+    "S",           # flake8-bandit
+    "BLE001",      # Do not catch blind exception
+    "B",           # flake8-bugbear
+    "A",           # flake8-builtins
+    "C4",          # flake8-comprehensions
+    "DTZ",         # flake8-datetimez
+    "T100",        # Debugger calls and imports
+    "EM",          # flake8-errmsg
+    "FIX",         # flake8-fixme
+    "ICN",         # flake8-import-conventions
+    "PIE",         # flake8-pie
+    "T20",         # flake8-print
+    "PYI",         # flake8-pyi
+    "PT",          # flake8-pytest-style
+    "Q",           # flake8-quotes
+    "RSE102",      # flake8-raise
+    "RET",         # flake8-return
+    "SLF",         # Private member accessed
+    "SIM",         # flake8-simplify
+    "SLOT",        # flake8-slots
+    "TID",         # flake8-tidy-imports
+    "TD",          # flake8-todos
+    "TC",          # flake8-type-checking
+    "ARG",         # flake8-unused-arguments
+    "PTH",         # flake8-use-pathlib
+    "FLY",         # flynt
+    "I",           # isort
+    "C90",         # mccabe
+    "NPY",         # NumPy-specific rules
+    "PD",          # pandas-vet
+    "N",           # pep8-naming
+    "PERF",        # perflint
+    "E",           # pycodestyle error
+    "W",           # pycodestyle warning
+    "D",           # pydocstyle
+    "F",           # Pyflakes
+    "PGH",         # pygrep-hooks
+    "PL",          # pylint
+    "PLE",         # Error
+    "PLR",         # Refactor
+    "PLW",         # Warning
+    "UP",          # pyupgrade
+    "FURB",        # refurb
+    "RUF",         # Ruff-specific
 ]
 ignore = [
     "PLR",    # Design related pylint codes
     "RUF012", # Would require a lot of ClassVar's
+    "E501",   # Handled by formatter
+    "S101",   # Allow `assert` in tests
+    "ARG001", # Allow unused arguments
+    "ARG002", # It's fine for fixture arguments to be unused.
 ]
 
 [tool.ruff.lint.pydocstyle]
