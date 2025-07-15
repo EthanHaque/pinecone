@@ -35,3 +35,9 @@ repos:
     hooks:
       - id: bandit
         args: ["--quiet", "-x", "tests/"]
+
+-   repo: https://github.com/jsh9/pydoclint
+    rev: 0.6.7
+    hooks:
+      - id: pydoclint
+        args: [--style=numpy, "--quiet"]
