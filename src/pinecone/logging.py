@@ -15,6 +15,7 @@ def setup_logging() -> None:
     """
     log_level = os.getenv("LOG_LEVEL", "DEBUG").upper()
 
+    renderer: list[structlog.types.Processor]
     if sys.stderr.isatty():
         # Pretty printing when we run in a terminal session.
         renderer = [structlog.dev.ConsoleRenderer()]
@@ -64,9 +65,10 @@ def get_logger(name: str | None = None) -> structlog.stdlib.BoundLogger:
 
     Parameters
     ----------
-    name:
+    name str | None:
         The name of the logger, typically __name__ of the module.
     """
     if not name:
         name = "pinecone"
-    return structlog.get_logger(name)
+    logger: structlog.stdlib.BoundLogger = structlog.get_logger(name)
+    return logger
