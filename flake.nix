@@ -21,19 +21,21 @@
         devShells.default = pkgs.mkShell {
           name = "pinecone-shell";
           buildInputs = with pkgs; [
-            python313
-
-            uv
             git
             pre-commit
-            ruff
 
+            python313
+            uv
+            ruff
             (pkgs.python313.withPackages (ps: with ps;
               [
                 python-dotenv
                 structlog
                 flask
               ]))
+
+            nodejs
+            pnpm
           ];
 
           shellHook = ''
