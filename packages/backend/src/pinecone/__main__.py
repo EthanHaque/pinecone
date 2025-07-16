@@ -1,8 +1,8 @@
 """Main entry point for the Pinecone application."""
 
 from dotenv import load_dotenv
-from pinecone import create_app
 
+from pinecone import create_app
 from pinecone.logging import get_logger, setup_logging
 
 
