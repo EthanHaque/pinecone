@@ -32,6 +32,7 @@
               [
                 python-dotenv
                 structlog
+                flask
               ]))
           ];
 
