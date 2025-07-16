@@ -1,5 +1,5 @@
 BACKEND_DIR := packages/backend
-FRONTEND_DIR := packages/frontend
+FRONTEND_DIR := packages/client
 
 .PHONY: help install check install-backend check-backend install-frontend check-frontend
 
