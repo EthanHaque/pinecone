@@ -71,8 +71,9 @@
                   source "$VENV_DIR/bin/activate"
                   echo "🐍 Virtual environment activated."
 
-                  echo "📦 Syncing Python dependencies..."
-                  uv sync --dev
+                  echo "📦 Installing project in editable mode with dev dependencies..."
+                  uv pip install -e ".[dev]"
+
                   echo "✅ Backend environment is ready."
               else
                   echo "⚠️ Not in a Python project directory. Skipping uv setup."
