@@ -26,8 +26,7 @@ repos:
     rev: v1.17.0
     hooks:
       - id: mypy
-        files: ^packages/backend/
-        files: ^src/
+        files: ^packages/backend/src/
         args: [--strict]
         # Add libraries that don't have inline types or stubs here
         additional_dependencies: [
