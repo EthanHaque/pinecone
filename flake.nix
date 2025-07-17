@@ -76,10 +76,11 @@
 
                   echo "✅ Backend environment is ready."
 
-                  cd "../.."
               else
                   echo "⚠️ Not in a Python project directory. Skipping uv setup."
               fi
+
+              cd "../.."
             '';
           };
 
