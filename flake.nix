@@ -72,9 +72,11 @@
                   echo "🐍 Virtual environment activated."
 
                   echo "📦 Installing project in editable mode with dev dependencies..."
-                  uv pip install -e ".[dev]"
+                  uv pip install -e ".[test]"
 
                   echo "✅ Backend environment is ready."
+
+                  cd "../.."
               else
                   echo "⚠️ Not in a Python project directory. Skipping uv setup."
               fi

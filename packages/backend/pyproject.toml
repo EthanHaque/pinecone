@@ -21,7 +21,10 @@ test = [
 ]
 dev = [
     "pinecone[test]",
-    "mypy",
+    "ruff",
+    "ty",
+    "pydoclint",
+    "bandit"
 ]
 
 [build-system]
