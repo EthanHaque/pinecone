@@ -38,8 +38,9 @@
         node-tools = with pkgs; [
           nodejs_24
           pnpm
+          eslint
+          nodePackages.prettier
         ];
-
       in
       {
         devShells = {
