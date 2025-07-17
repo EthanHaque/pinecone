@@ -19,9 +19,9 @@ check-backend: ## 🐍 Run all Python checks
 	@printf "\n\033[1;34m🐍 Checking Backend...\033[0m\n"
 	@cd $(BACKEND_DIR) && \
 		printf "\033[36m   -> Formatting with Ruff...\033[0m\n" && \
-		ruff format . && \
+		ruff format --silent . && \
 		printf "\033[36m   -> Linting with Ruff...\033[0m\n" && \
-		ruff check . --fix --show-fixes && \
+		ruff check . --fix --show-fixes --silent && \
 		printf "\033[36m   -> Type-checking with ty...\033[0m\n" && \
 		ty check && \
 		printf "\033[36m   -> Checking docs with pydoclint...\033[0m\n" && \
