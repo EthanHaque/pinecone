@@ -22,8 +22,8 @@ check-backend: ## 🐍 Run all Python checks
 		ruff format . && \
 		printf "\033[36m   -> Linting with Ruff...\033[0m\n" && \
 		ruff check . --fix --show-fixes && \
-		printf "\033[36m   -> Type-checking with Mypy...\033[0m\n" && \
-		mypy src/ --strict && \
+		printf "\033[36m   -> Type-checking with ty...\033[0m\n" && \
+		ty check && \
 		printf "\033[36m   -> Scanning with Bandit...\033[0m\n" && \
 		bandit --quiet -x tests/ -r . && \
 		printf "\033[1;32m   ✓ All backend checks passed.\033[0m\n"

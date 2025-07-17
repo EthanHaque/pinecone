@@ -31,7 +31,7 @@
 
           uv
           ruff
-          mypy
+          ty
           bandit
         ];
 
