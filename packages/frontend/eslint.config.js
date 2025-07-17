@@ -1,23 +1,62 @@
 import js from "@eslint/js";
-import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
-import reactRefresh from "eslint-plugin-react-refresh";
-import tseslint from "typescript-eslint";
-import { globalIgnores } from "eslint/config";
+import prettier from "eslint-config-prettier";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
+import unicorn from "eslint-plugin-unicorn";
+import ts from "typescript-eslint";
 
-export default tseslint.config([
-  globalIgnores(["dist"]),
+export default ts.config(
   {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs["recommended-latest"],
-      reactRefresh.configs.vite,
-    ],
+    ignores: ["**/dist/", "**/node_modules/"],
+  },
+
+  {
+    extends: [js.configs.recommended, ...ts.configs.strictTypeChecked, unicorn.configs.recommended, prettier],
+    files: ["**/*.ts", "**/*.tsx"],
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
+      parserOptions: {
+        project: true,
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+        sourceType: "module",
+      },
+    },
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+    },
+    rules: {
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+      "unicorn/filename-case": [
+        "error",
+        {
+          cases: {
+            camelCase: true,
+            pascalCase: true,
+          },
+        },
+      ],
     },
   },
-]);
+
+  {
+    extends: [js.configs.recommended, unicorn.configs.recommended],
+    files: ["**/*.js", "**/*.cjs"],
+    plugins: {
+      "simple-import-sort": simpleImportSort,
+    },
+    rules: {
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
+
+      "unicorn/filename-case": [
+        "error",
+        {
+          cases: {
+            camelCase: true,
+            pascalCase: true,
+          },
+        },
+      ],
+    },
+  },
+);
