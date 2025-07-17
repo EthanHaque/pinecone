@@ -3,7 +3,7 @@
 from flask import Flask
 
 
-def create_app() -> None:
+def create_app() -> Flask:
     """Construct flask app."""
     app = Flask(__name__)
 
