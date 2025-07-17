@@ -59,4 +59,11 @@ export default ts.config(
       ],
     },
   },
+  {
+    files: ["**/*.d.ts"],
+    rules: {
+      "unicorn/filename-case": "off",
+      "unicorn/prevent-abbreviations": "off",
+    },
+  },
 );
