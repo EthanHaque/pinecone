@@ -25,7 +25,7 @@ check-backend: ## 🐍 Run all Python checks
 		printf "\033[36m   -> Type-checking with ty...\033[0m\n" && \
 		ty check && \
 		printf "\033[36m   -> Checking docs with pydoclint...\033[0m\n" && \
-		pydoclint --quiet --style=numpy src/ && \
+		pydoclint --style=numpy src/ && \
 		printf "\033[36m   -> Scanning with Bandit...\033[0m\n" && \
 		bandit --quiet -x tests/ -r src/ && \
 		printf "\033[1;32m   ✓ All backend checks passed.\033[0m\n"
