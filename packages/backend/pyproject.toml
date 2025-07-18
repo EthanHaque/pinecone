@@ -22,7 +22,7 @@ test = [
 dev = [
     "pinecone[test]",
     "ruff",
-    "ty",
+    "mypy",
     "pydoclint",
     "bandit"
 ]

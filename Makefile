@@ -23,7 +23,7 @@ check-backend: ## 🐍 Run all Python checks
 		printf "\033[36m   -> Linting with Ruff...\033[0m\n" && \
 		ruff check . --fix --show-fixes --silent && \
 		printf "\033[36m   -> Type-checking with ty...\033[0m\n" && \
-		ty check && \
+		python -m mypy && \
 		printf "\033[36m   -> Checking docs with pydoclint...\033[0m\n" && \
 		pydoclint --style=numpy src/ && \
 		printf "\033[36m   -> Scanning with Bandit...\033[0m\n" && \
