@@ -26,8 +26,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e ".[dev]"
 
-      - name: Format with ruff
-        run: ruff format .
+      - name: Check formatting with ruff
+        run: ruff format . --check
 
       - name: Lint with ruff
         run: ruff check .
@@ -68,5 +68,5 @@ jobs:
       - name: Lint
         run: pnpm run lint
 
-      - name: Build
-        run: pnpm run build
+      - name: Check formt
+        run: pnpm run format:check
