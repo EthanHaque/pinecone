@@ -26,7 +26,7 @@
             [
               python-dotenv
               structlog
-              flask
+              fastapi
             ]))
 
           uv
