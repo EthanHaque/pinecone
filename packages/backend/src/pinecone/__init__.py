@@ -13,7 +13,7 @@ def read_root() -> dict[str, str]:
 
     Returns
     -------
-    dict
+    dict[str, str]
         A dictionary with a simple greeting.
 
     """
@@ -28,7 +28,7 @@ def read_item(item_id: int, q: str | None = None) -> dict[str, Any]:
     ----------
     item_id : int
         The unique identifier for the item.
-    q : Union[str, None], optional
+    q : str | None, optional
         An optional query string, by default None.
 
     Returns
